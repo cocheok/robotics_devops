@@ -1,0 +1,208 @@
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  
+  
+  <title>Work - Robotics DevOps</title>
+  
+
+  <link rel="shortcut icon" href="../img/favicon.ico">
+
+  
+  <link href='https://fonts.googleapis.com/css?family=Lato:400,700|Roboto+Slab:400,700|Inconsolata:400,700' rel='stylesheet' type='text/css'>
+
+  <link rel="stylesheet" href="../css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../css/theme_extra.css" type="text/css" />
+  <link rel="stylesheet" href="../css/highlight.css">
+
+  
+  <script>
+    // Current page data
+    var mkdocs_page_name = "Work";
+    var mkdocs_page_input_path = "development.md";
+    var mkdocs_page_url = "/development/";
+  </script>
+  
+  <script src="../js/jquery-2.1.1.min.js"></script>
+  <script src="../js/modernizr-2.8.3.min.js"></script>
+  <script type="text/javascript" src="../js/highlight.pack.js"></script>
+  <script src="../js/theme.js"></script> 
+
+  
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+  <div class="wy-grid-for-nav">
+
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side stickynav">
+      <div class="wy-side-nav-search">
+        <a href=".." class="icon icon-home"> Robotics DevOps</a>
+        <div role="search">
+  <form id ="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+  </form>
+</div>
+      </div>
+
+      <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+        <ul class="current">
+          
+            <li>
+    <li class="toctree-l1 ">
+        <a class="" href="..">Home</a>
+        
+    </li>
+<li>
+          
+            <li>
+    <li class="toctree-l1 current">
+        <a class="current" href="./">Work</a>
+        
+            <ul>
+            
+                <li class="toctree-l3"><a href="#overview">Overview</a></li>
+                
+            
+                <li class="toctree-l3"><a href="#deploy">Deploy</a></li>
+                
+            
+                <li class="toctree-l3"><a href="#using-node-red">Using node red</a></li>
+                
+                    <li><a class="toctree-l4" href="#example">Example</a></li>
+                
+            
+            </ul>
+        
+    </li>
+<li>
+          
+            <li>
+    <li class="toctree-l1 ">
+        <a class="" href="../continuous_integrity/">Continuous delivery</a>
+        
+    </li>
+<li>
+          
+            <li>
+    <li class="toctree-l1 ">
+        <a class="" href="../about/">About</a>
+        
+    </li>
+<li>
+          
+        </ul>
+      </div>
+      &nbsp;
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" role="navigation" aria-label="top navigation">
+        <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+        <a href="..">Robotics DevOps</a>
+      </nav>
+
+      
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="breadcrumbs navigation">
+  <ul class="wy-breadcrumbs">
+    <li><a href="..">Docs</a> &raquo;</li>
+    
+      
+    
+    <li>Work</li>
+    <li class="wy-breadcrumbs-aside">
+      
+    </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main">
+            <div class="section">
+              
+                <h1 id="overview">Overview</h1>
+<p>We use Docker Compose to run complex multi container apps on a device that runs linux ( Raspberry Pi, X64).</p>
+<h1 id="deploy">Deploy</h1>
+<p>Our multi-container deploy solution has the following structure:</p>
+<p><img alt="overview" src="../images/development.jpg" /></p>
+<p>As we can see, the containers has different kind of services:</p>
+<ul>
+<li>ROS node</li>
+<li>node-red</li>
+<li>rosbridge</li>
+<li>etc  </li>
+</ul>
+<h1 id="using-node-red">Using node red</h1>
+<p>In one hand we have ROS that his nodes makes his communication using roscore (that is the core service). Over roscore the nodes that are registered comunicates each other using tipics and services. 
+On the other hand we have Node-Red that offer a web page to make flows. To post messages on ROS topics we can make a node-red node that uses the roslibjs to comunicate via websocket using rosbridge. Using this concept a node-red node can use topics or services that ROS publish. </p>
+<h2 id="example">Example</h2>
+<p>In the following image we can see an example of a talker node that recives of an input node "2222" and publishes into the topic /st and then a listener node that is subscrived on the /st topic and debug the recived message on the debugger console.</p>
+<p>The node-red module is: 
+<code>node-red-contrib-ros</code></p>
+<p>The flow is: </p>
+<pre><code>[{&quot;id&quot;:&quot;f31cee7d.0ce31&quot;,&quot;type&quot;:&quot;ros-server&quot;,&quot;z&quot;:&quot;a1c6eb3b.5e3918&quot;,&quot;url&quot;:&quot;ws://localhost:9090/&quot;},{&quot;id&quot;:&quot;b44e0788.4bb1f8&quot;,&quot;type&quot;:&quot;inject&quot;,&quot;z&quot;:&quot;a1c6eb3b.5e3918&quot;,&quot;name&quot;:&quot;&quot;,&quot;topic&quot;:&quot;&quot;,&quot;payload&quot;:&quot;2222&quot;,&quot;payloadType&quot;:&quot;str&quot;,&quot;repeat&quot;:&quot;&quot;,&quot;crontab&quot;:&quot;&quot;,&quot;once&quot;:false,&quot;x&quot;:111.5,&quot;y&quot;:232,&quot;wires&quot;:[[&quot;c2a8605a.3d57a&quot;]]},{&quot;id&quot;:&quot;bbb8147a.4447e8&quot;,&quot;type&quot;:&quot;ros-subscribe&quot;,&quot;z&quot;:&quot;a1c6eb3b.5e3918&quot;,&quot;server&quot;:&quot;f31cee7d.0ce31&quot;,&quot;topicname&quot;:&quot;/st&quot;,&quot;x&quot;:112.5,&quot;y&quot;:129,&quot;wires&quot;:[[&quot;b8bcdc13.47432&quot;]]},{&quot;id&quot;:&quot;b8bcdc13.47432&quot;,&quot;type&quot;:&quot;debug&quot;,&quot;z&quot;:&quot;a1c6eb3b.5e3918&quot;,&quot;name&quot;:&quot;&quot;,&quot;active&quot;:true,&quot;console&quot;:&quot;false&quot;,&quot;complete&quot;:&quot;true&quot;,&quot;x&quot;:333.5,&quot;y&quot;:163,&quot;wires&quot;:[]},{&quot;id&quot;:&quot;c2a8605a.3d57a&quot;,&quot;type&quot;:&quot;ros-publish&quot;,&quot;z&quot;:&quot;a1c6eb3b.5e3918&quot;,&quot;server&quot;:&quot;f31cee7d.0ce31&quot;,&quot;topicname&quot;:&quot;/st&quot;,&quot;msgtype&quot;:&quot;std_msgs/String&quot;,&quot;x&quot;:288.5,&quot;y&quot;:264,&quot;wires&quot;:[]}]
+</code></pre>
+
+<h3 id="step-1-start-the-services">Step 1: start the services</h3>
+<p><code>docker-compose up</code></p>
+<p><img alt="docker-compose up" src="../videos/docker-compose-up.gif" /></p>
+<h3 id="step-2-look-for-the-node-red-url">Step 2: look for the node-red url</h3>
+<p><code>docker inspect &lt;container&gt;</code></p>
+<p><img alt="docker inspect" src="../videos/inspect.gif" /></p>
+<h3 id="step-3-execute-the-flow-in-node-red-and-check-that-is-sending-messages-over-ros">Step 3: Execute the flow in node-red and check that is sending messages over ROS</h3>
+<p><img alt="using nodered" src="../videos/ros-node-red.gif" /></p>
+              
+            </div>
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="../continuous_integrity/" class="btn btn-neutral float-right" title="Continuous delivery">Next <span class="icon icon-circle-arrow-right"></span></a>
+      
+      
+        <a href=".." class="btn btn-neutral" title="Home"><span class="icon icon-circle-arrow-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <!-- Copyright etc -->
+    
+  </div>
+
+  Built with <a href="http://www.mkdocs.org">MkDocs</a> using a <a href="https://github.com/snide/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>.
+</footer>
+	  
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+
+<div class="rst-versions" role="note" style="cursor: pointer">
+    <span class="rst-current-version" data-toggle="rst-current-version">
+      
+      
+        <span><a href=".." style="color: #fcfcfc;">&laquo; Previous</a></span>
+      
+      
+        <span style="margin-left: 15px"><a href="../continuous_integrity/" style="color: #fcfcfc">Next &raquo;</a></span>
+      
+    </span>
+</div>
+
+</body>
+</html>
