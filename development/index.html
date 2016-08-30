@@ -146,12 +146,15 @@
 On the other hand we have Node-Red that offer a web page to make flows. To post messages on ROS topics we can make a node-red node that uses the roslibjs to comunicate via websocket using rosbridge. Using this concept a node-red node can use topics or services that ROS publish. </p>
 <h2 id="example">Example</h2>
 <p>In the following image we can see an example of a talker node that recives of an input node "2222" and publishes into the topic /st and then a listener node that is subscrived on the /st topic and debug the recived message on the debugger console.</p>
-<p>The node-red module is: 
-<code>node-red-contrib-ros</code></p>
+<p>The node-red module is: </p>
+<p><code>node-red-contrib-ros</code></p>
 <p>The flow is: </p>
+<p><strong>flow.json</strong></p>
 <pre><code>[{&quot;id&quot;:&quot;f31cee7d.0ce31&quot;,&quot;type&quot;:&quot;ros-server&quot;,&quot;z&quot;:&quot;a1c6eb3b.5e3918&quot;,&quot;url&quot;:&quot;ws://localhost:9090/&quot;},{&quot;id&quot;:&quot;b44e0788.4bb1f8&quot;,&quot;type&quot;:&quot;inject&quot;,&quot;z&quot;:&quot;a1c6eb3b.5e3918&quot;,&quot;name&quot;:&quot;&quot;,&quot;topic&quot;:&quot;&quot;,&quot;payload&quot;:&quot;2222&quot;,&quot;payloadType&quot;:&quot;str&quot;,&quot;repeat&quot;:&quot;&quot;,&quot;crontab&quot;:&quot;&quot;,&quot;once&quot;:false,&quot;x&quot;:111.5,&quot;y&quot;:232,&quot;wires&quot;:[[&quot;c2a8605a.3d57a&quot;]]},{&quot;id&quot;:&quot;bbb8147a.4447e8&quot;,&quot;type&quot;:&quot;ros-subscribe&quot;,&quot;z&quot;:&quot;a1c6eb3b.5e3918&quot;,&quot;server&quot;:&quot;f31cee7d.0ce31&quot;,&quot;topicname&quot;:&quot;/st&quot;,&quot;x&quot;:112.5,&quot;y&quot;:129,&quot;wires&quot;:[[&quot;b8bcdc13.47432&quot;]]},{&quot;id&quot;:&quot;b8bcdc13.47432&quot;,&quot;type&quot;:&quot;debug&quot;,&quot;z&quot;:&quot;a1c6eb3b.5e3918&quot;,&quot;name&quot;:&quot;&quot;,&quot;active&quot;:true,&quot;console&quot;:&quot;false&quot;,&quot;complete&quot;:&quot;true&quot;,&quot;x&quot;:333.5,&quot;y&quot;:163,&quot;wires&quot;:[]},{&quot;id&quot;:&quot;c2a8605a.3d57a&quot;,&quot;type&quot;:&quot;ros-publish&quot;,&quot;z&quot;:&quot;a1c6eb3b.5e3918&quot;,&quot;server&quot;:&quot;f31cee7d.0ce31&quot;,&quot;topicname&quot;:&quot;/st&quot;,&quot;msgtype&quot;:&quot;std_msgs/String&quot;,&quot;x&quot;:288.5,&quot;y&quot;:264,&quot;wires&quot;:[]}]
 </code></pre>
 
+<p><strong>node-red web</strong></p>
+<p><img alt="flow" src="../images/nodered_simpleflow.png" /></p>
 <h3 id="step-1-start-the-services">Step 1: start the services</h3>
 <p><code>docker-compose up</code></p>
 <p><img alt="docker-compose up" src="../videos/docker-compose-up.gif" /></p>
