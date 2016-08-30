@@ -1,0 +1,7 @@
+site_name: Robotics DevOps
+pages:
+- Home: index.md
+- Work: development.md
+- Continuous delivery: continuous_integrity.md
+- About: about.md
+theme: readthedocs
