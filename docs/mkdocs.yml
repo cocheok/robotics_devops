@@ -3,5 +3,6 @@ pages:
 - Home: index.md
 - Work: development.md
 - Continuous delivery: continuous_integrity.md
+- Demos: demos.md
 - About: about.md
 theme: readthedocs
