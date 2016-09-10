@@ -1,0 +1,51 @@
+version: '2'
+
+services:
+
+  master:
+    image: ros_base
+    command:
+      - roscore
+
+  rosbridge:
+    image: rosbridge
+    environment:
+      - "ROS_HOSTNAME=rosbridge"
+      - "ROS_MASTER_URI=http://master:11311"
+    depends_on:
+      - master
+
+  talker:
+    image: ros_base
+    environment:
+      - "ROS_HOSTNAME=talker"
+      - "ROS_MASTER_URI=http://master:11311"
+    depends_on:
+      - master
+    command: rosrun roscpp_tutorials talker
+
+  listener:
+    image: ros_base
+    environment:
+      - "ROS_HOSTNAME=listener"
+      - "ROS_MASTER_URI=http://master:11311"
+    depends_on:
+      - master
+    command: rosrun roscpp_tutorials listener
+
+  nodered:
+    image: nodered_base
+    depends_on:
+      - rosbridge
+    environment:
+      - DISPLAY=$DISPLAY
+      - QT_X11_NO_MITSHM=1
+      - LIBGL_DEBUG=verbose glxinfo
+      - LIBGL_ALWAYS_SOFTWARE=1
+      - EDITOR=nano -w
+      - TERM=xterm
+    cap_add:
+      - SYS_ADMIN
+    devices:
+      - "/dev/dri:/dev/dri"
+
