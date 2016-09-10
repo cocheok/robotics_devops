@@ -61,6 +61,71 @@
             "title": "Overview"
         }, 
         {
+            "location": "/demos/", 
+            "text": "Prerequisites\n\n\n1. Install and configure \nDocker\n\n\n2. Get the code\n\n\ngit clone https://github.com/cocheok/robotics_devops.git\n\n\n\n\nConfiguration\n\n\n1. Build ros-base image\n\n\ncd ros\ndocker build -t ros_base .\ncd ..\n\n\n\n\n2. Build nodered image\n\n\ncd nodered_base\ndocker build -t nodered_base .\ncd ..\n\n\n\n\nTalker Listener example\n\n\nThis is example has the following structure:\n\n\n\n1. Run the talker-listener example\n\n\ncd demos/talker-listener\ndocker-compose up            \n\n\n\n\n2. Look for node-red url\n\n\nIn another window \n\n\n2.1 List the docker containers\n\n\ndocker ps\n\n\n\n\nThere are one that has the node_red in his name (The node-red container has a name like talkerlistener_nodered_1).\n\n\n2.2 Inspect the node-red container and get the url\n\n\nreplace the \n with the node-red container of the step 2.1 \n\n\ndocker inspect \nnode-red container\n\n\n\n\n\n3 Use node-red\n\n\nOpen your browser and put the ip obtained on the point 2.2. The service is running on port 1880.", 
+            "title": "Demos"
+        }, 
+        {
+            "location": "/demos/#prerequisites", 
+            "text": "", 
+            "title": "Prerequisites"
+        }, 
+        {
+            "location": "/demos/#1-install-and-configure-docker", 
+            "text": "", 
+            "title": "1. Install and configure Docker"
+        }, 
+        {
+            "location": "/demos/#2-get-the-code", 
+            "text": "git clone https://github.com/cocheok/robotics_devops.git", 
+            "title": "2. Get the code"
+        }, 
+        {
+            "location": "/demos/#configuration", 
+            "text": "", 
+            "title": "Configuration"
+        }, 
+        {
+            "location": "/demos/#1-build-ros-base-image", 
+            "text": "cd ros\ndocker build -t ros_base .\ncd ..", 
+            "title": "1. Build ros-base image"
+        }, 
+        {
+            "location": "/demos/#2-build-nodered-image", 
+            "text": "cd nodered_base\ndocker build -t nodered_base .\ncd ..", 
+            "title": "2. Build nodered image"
+        }, 
+        {
+            "location": "/demos/#talker-listener-example", 
+            "text": "This is example has the following structure:", 
+            "title": "Talker Listener example"
+        }, 
+        {
+            "location": "/demos/#1-run-the-talker-listener-example", 
+            "text": "cd demos/talker-listener\ndocker-compose up", 
+            "title": "1. Run the talker-listener example"
+        }, 
+        {
+            "location": "/demos/#2-look-for-node-red-url", 
+            "text": "In another window", 
+            "title": "2. Look for node-red url"
+        }, 
+        {
+            "location": "/demos/#21-list-the-docker-containers", 
+            "text": "docker ps  There are one that has the node_red in his name (The node-red container has a name like talkerlistener_nodered_1).", 
+            "title": "2.1 List the docker containers"
+        }, 
+        {
+            "location": "/demos/#22-inspect-the-node-red-container-and-get-the-url", 
+            "text": "replace the   with the node-red container of the step 2.1   docker inspect  node-red container", 
+            "title": "2.2 Inspect the node-red container and get the url"
+        }, 
+        {
+            "location": "/demos/#3-use-node-red", 
+            "text": "Open your browser and put the ip obtained on the point 2.2. The service is running on port 1880.", 
+            "title": "3 Use node-red"
+        }, 
+        {
             "location": "/about/", 
             "text": "Contact", 
             "title": "About"

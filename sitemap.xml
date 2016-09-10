@@ -4,7 +4,7 @@
     
     <url>
      <loc>None/</loc>
-     <lastmod>2016-08-30</lastmod>
+     <lastmod>2016-09-10</lastmod>
      <changefreq>daily</changefreq>
     </url>
     
@@ -12,7 +12,7 @@
     
     <url>
      <loc>None/development/</loc>
-     <lastmod>2016-08-30</lastmod>
+     <lastmod>2016-09-10</lastmod>
      <changefreq>daily</changefreq>
     </url>
     
@@ -20,7 +20,15 @@
     
     <url>
      <loc>None/continuous_integrity/</loc>
-     <lastmod>2016-08-30</lastmod>
+     <lastmod>2016-09-10</lastmod>
+     <changefreq>daily</changefreq>
+    </url>
+    
+
+    
+    <url>
+     <loc>None/demos/</loc>
+     <lastmod>2016-09-10</lastmod>
      <changefreq>daily</changefreq>
     </url>
     
@@ -28,7 +36,7 @@
     
     <url>
      <loc>None/about/</loc>
-     <lastmod>2016-08-30</lastmod>
+     <lastmod>2016-09-10</lastmod>
      <changefreq>daily</changefreq>
     </url>
     
