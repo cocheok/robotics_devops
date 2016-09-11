@@ -24,7 +24,7 @@ cd ..
 # Talker Listener example
 
 This is example has the following structure:
-![Talker-Listener Structure](docs/docs/images/talker-listener.png)
+![Talker-Listener Structure](images/talker-listener.png)
 
 ## 1. Run the talker-listener example
 ```
