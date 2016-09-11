@@ -54,7 +54,7 @@ The topic that is used by the talker node is **/chatter**
 	
 #### 3.1.1 Put the **ROS sub** node from the input section and the **debug** node from the output section on the board and connect them
 
-![Chatter Subscriber](images/nodered_chatter_subscriber.png)
+![subscriber](images/nodered_chatter_subscriber.png)
 
 #### 3.1.2 Configure **ROS sub** node with the following content:
 
@@ -73,7 +73,7 @@ The topic that is used by the talker node is **/chatter**
 
 #### 3.2.1 Put the **ROS pub** node from the output section and the **inject** node from the input section on the board and connect them
 
-![Chatter Publisher](images/nodered_chatter_publisher.png)
+![publisher](images/nodered_chatter_publisher.png)
 
 #### 3.2.2 Configure **ROS pub** node with the following content:                                                             
  
