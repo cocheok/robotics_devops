@@ -188,7 +188,26 @@ docker-compose up
 </code></pre>
 
 <h2 id="3-use-node-red">3 Use node-red</h2>
-<p>Open your browser and put the ip obtained on the point 2.2. The service is running on port 1880.</p>
+<p>Open your browser and put the ip obtained on the point 2.2. The service is running on port 1880.
+The topic that is used by the talker node is <strong>/chatter</strong> </p>
+<h3 id="31-consume-messages-from-chatter-topic">3.1 Consume messages from <strong>/chatter</strong> topic</h3>
+<h4 id="311-put-the-ros-sub-node-from-the-input-section-and-the-debug-node-from-the-output-section-on-the-board-and-connect-them">3.1.1 Put the <strong>ROS sub</strong> node from the input section and the <strong>debug</strong> node from the output section on the board and connect them</h4>
+<p><img alt="Chatter Subscriber" src="../docs/docs/images/nodered_chatter_subscriber.png" /></p>
+<h4 id="312-configure-ros-sub-node-with-the-following-content">3.1.2 Configure <strong>ROS sub</strong> node with the following content:</h4>
+<p>-&gt; ROS Server:  <strong>ws://rosbridge:9090</strong>
+ -&gt; Topic: <strong>/chatter</strong></p>
+<h4 id="313-configure-debug">3.1.3 Configure debug:</h4>
+<p>-&gt; Output: complete msg object </p>
+<h4 id="314-click-on-deploy-and-see-messages-on-debug-tab">3.1.4 Click on <strong>Deploy</strong> and see messages on debug tab</h4>
+<h3 id="32-publish-messages-on-chatter-topic">3.2 Publish messages on <strong>/chatter</strong> topic</h3>
+<h4 id="321-put-the-ros-pub-node-from-the-output-section-and-the-inject-node-from-the-input-section-on-the-board-and-connect-them">3.2.1 Put the <strong>ROS pub</strong> node from the output section and the <strong>inject</strong> node from the input section on the board and connect them</h4>
+<p><img alt="Chatter Publisher" src="../docs/docs/images/nodered_chatter_publisher.png" /></p>
+<h4 id="322-configure-ros-pub-node-with-the-following-content">3.2.2 Configure <strong>ROS pub</strong> node with the following content:</h4>
+<p>-&gt; ROS Server:  <strong>ws://rosbridge:9090</strong>
+ -&gt; Topic: <strong>/chatter</strong></p>
+<h4 id="313-configure-inject">3.1.3 Configure inject:</h4>
+<p>-&gt; On Payload select type string and put the text "Test from node-red"</p>
+<h4 id="314-click-on-deploy-then-on-the-blue-button-of-inject-and-see-messages-on-debug-tab">3.1.4 Click on <strong>Deploy</strong>, then on the blue button of inject and see messages on debug tab</h4>
               
             </div>
           </div>

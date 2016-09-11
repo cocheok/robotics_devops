@@ -62,7 +62,7 @@
         }, 
         {
             "location": "/demos/", 
-            "text": "Prerequisites\n\n\n1. Install and configure \nDocker\n\n\n2. Get the code\n\n\ngit clone https://github.com/cocheok/robotics_devops.git\n\n\n\n\nConfiguration\n\n\n1. Build ros-base image\n\n\ncd ros\ndocker build -t ros_base .\ncd ..\n\n\n\n\n2. Build nodered image\n\n\ncd nodered_base\ndocker build -t nodered_base .\ncd ..\n\n\n\n\nTalker Listener example\n\n\nThis is example has the following structure:\n\n\n\n1. Run the talker-listener example\n\n\ncd demos/talker-listener\ndocker-compose up            \n\n\n\n\n2. Look for node-red url\n\n\nIn another window \n\n\n2.1 List the docker containers\n\n\ndocker ps\n\n\n\n\nThere are one that has the node_red in his name (The node-red container has a name like talkerlistener_nodered_1).\n\n\n2.2 Inspect the node-red container and get the url\n\n\nreplace the \n with the node-red container of the step 2.1 \n\n\ndocker inspect \nnode-red container\n\n\n\n\n\n3 Use node-red\n\n\nOpen your browser and put the ip obtained on the point 2.2. The service is running on port 1880.", 
+            "text": "Prerequisites\n\n\n1. Install and configure \nDocker\n\n\n2. Get the code\n\n\ngit clone https://github.com/cocheok/robotics_devops.git\n\n\n\n\nConfiguration\n\n\n1. Build ros-base image\n\n\ncd ros\ndocker build -t ros_base .\ncd ..\n\n\n\n\n2. Build nodered image\n\n\ncd nodered_base\ndocker build -t nodered_base .\ncd ..\n\n\n\n\nTalker Listener example\n\n\nThis is example has the following structure:\n\n\n\n1. Run the talker-listener example\n\n\ncd demos/talker-listener\ndocker-compose up            \n\n\n\n\n2. Look for node-red url\n\n\nIn another window \n\n\n2.1 List the docker containers\n\n\ndocker ps\n\n\n\n\nThere are one that has the node_red in his name (The node-red container has a name like talkerlistener_nodered_1).\n\n\n2.2 Inspect the node-red container and get the url\n\n\nreplace the \n with the node-red container of the step 2.1 \n\n\ndocker inspect \nnode-red container\n\n\n\n\n\n3 Use node-red\n\n\nOpen your browser and put the ip obtained on the point 2.2. The service is running on port 1880.\nThe topic that is used by the talker node is \n/chatter\n \n\n\n3.1 Consume messages from \n/chatter\n topic\n\n\n3.1.1 Put the \nROS sub\n node from the input section and the \ndebug\n node from the output section on the board and connect them\n\n\n\n\n3.1.2 Configure \nROS sub\n node with the following content:\n\n\n-\n ROS Server:  \nws://rosbridge:9090\n\n -\n Topic: \n/chatter\n\n\n3.1.3 Configure debug:\n\n\n-\n Output: complete msg object \n\n\n3.1.4 Click on \nDeploy\n and see messages on debug tab\n\n\n3.2 Publish messages on \n/chatter\n topic\n\n\n3.2.1 Put the \nROS pub\n node from the output section and the \ninject\n node from the input section on the board and connect them\n\n\n\n\n3.2.2 Configure \nROS pub\n node with the following content:\n\n\n-\n ROS Server:  \nws://rosbridge:9090\n\n -\n Topic: \n/chatter\n\n\n3.1.3 Configure inject:\n\n\n-\n On Payload select type string and put the text \"Test from node-red\"\n\n\n3.1.4 Click on \nDeploy\n, then on the blue button of inject and see messages on debug tab", 
             "title": "Demos"
         }, 
         {
@@ -122,8 +122,58 @@
         }, 
         {
             "location": "/demos/#3-use-node-red", 
-            "text": "Open your browser and put the ip obtained on the point 2.2. The service is running on port 1880.", 
+            "text": "Open your browser and put the ip obtained on the point 2.2. The service is running on port 1880.\nThe topic that is used by the talker node is  /chatter", 
             "title": "3 Use node-red"
+        }, 
+        {
+            "location": "/demos/#31-consume-messages-from-chatter-topic", 
+            "text": "", 
+            "title": "3.1 Consume messages from /chatter topic"
+        }, 
+        {
+            "location": "/demos/#311-put-the-ros-sub-node-from-the-input-section-and-the-debug-node-from-the-output-section-on-the-board-and-connect-them", 
+            "text": "", 
+            "title": "3.1.1 Put the ROS sub node from the input section and the debug node from the output section on the board and connect them"
+        }, 
+        {
+            "location": "/demos/#312-configure-ros-sub-node-with-the-following-content", 
+            "text": "-  ROS Server:   ws://rosbridge:9090 \n -  Topic:  /chatter", 
+            "title": "3.1.2 Configure ROS sub node with the following content:"
+        }, 
+        {
+            "location": "/demos/#313-configure-debug", 
+            "text": "-  Output: complete msg object", 
+            "title": "3.1.3 Configure debug:"
+        }, 
+        {
+            "location": "/demos/#314-click-on-deploy-and-see-messages-on-debug-tab", 
+            "text": "", 
+            "title": "3.1.4 Click on Deploy and see messages on debug tab"
+        }, 
+        {
+            "location": "/demos/#32-publish-messages-on-chatter-topic", 
+            "text": "", 
+            "title": "3.2 Publish messages on /chatter topic"
+        }, 
+        {
+            "location": "/demos/#321-put-the-ros-pub-node-from-the-output-section-and-the-inject-node-from-the-input-section-on-the-board-and-connect-them", 
+            "text": "", 
+            "title": "3.2.1 Put the ROS pub node from the output section and the inject node from the input section on the board and connect them"
+        }, 
+        {
+            "location": "/demos/#322-configure-ros-pub-node-with-the-following-content", 
+            "text": "-  ROS Server:   ws://rosbridge:9090 \n -  Topic:  /chatter", 
+            "title": "3.2.2 Configure ROS pub node with the following content:"
+        }, 
+        {
+            "location": "/demos/#313-configure-inject", 
+            "text": "-  On Payload select type string and put the text \"Test from node-red\"", 
+            "title": "3.1.3 Configure inject:"
+        }, 
+        {
+            "location": "/demos/#314-click-on-deploy-then-on-the-blue-button-of-inject-and-see-messages-on-debug-tab", 
+            "text": "", 
+            "title": "3.1.4 Click on Deploy, then on the blue button of inject and see messages on debug tab"
         }, 
         {
             "location": "/about/", 
