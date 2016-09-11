@@ -63,12 +63,14 @@ The topic that is used by the talker node is **/chatter**
 ![Chatter Subscriber](docs/docs/images/nodered_chatter_subscriber.png)
 
 #### 3.1.2 Configure **ROS sub** node with the following content:
+ 
  -> ROS Server:  **ws://rosbridge:9090**
+ 
  -> Topic: **/chatter**
 
 #### 3.1.3 Configure debug:
 
-  -> Output: complete msg object 
+ -> Output: complete msg object 
 
 #### 3.1.4 Click on **Deploy** and see messages on debug tab
 
@@ -80,12 +82,14 @@ The topic that is used by the talker node is **/chatter**
 ![Chatter Publisher](docs/docs/images/nodered_chatter_publisher.png)
 
 #### 3.2.2 Configure **ROS pub** node with the following content:                                                             
+
  -> ROS Server:  **ws://rosbridge:9090**
+
  -> Topic: **/chatter**
 
 #### 3.1.3 Configure inject: 
 
-  -> On Payload select type string and put the text "Test from node-red"
+ -> On Payload select type string and put the text "Test from node-red"
 
 #### 3.1.4 Click on **Deploy**, then on the blue button of inject and see messages on debug tab
  
