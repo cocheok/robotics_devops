@@ -94,3 +94,5 @@ The topic that is used by the talker node is **/chatter**
 #### 3.1.4 Click on **Deploy**, then on the blue button of inject and see messages on debug tab
  
 
+Flow
+[{"id":"5848c162.48fa6","type":"tab","label":"Flow 1","disabled":false,"info":""},{"id":"be2b815f.a990b","type":"inject","z":"5848c162.48fa6","name":"","topic":"Test","payload":"Test node-red","payloadType":"str","repeat":"","crontab":"","once":false,"onceDelay":0.1,"x":150,"y":360,"wires":[["30696466.ce8f74"]]},{"id":"618d0bad.17be14","type":"debug","z":"5848c162.48fa6","name":"","active":false,"tosidebar":true,"console":false,"tostatus":false,"complete":"payload.data","x":480,"y":140,"wires":[]},{"id":"66b446ff.6d91d","type":"ros-subscribe","z":"5848c162.48fa6","server":"c7030e4e.0c461","topicname":"/chatter","x":190,"y":120,"wires":[["618d0bad.17be14"]]},{"id":"30696466.ce8f74","type":"ros-publish","z":"5848c162.48fa6","server":"c7030e4e.0c461","topicname":"/chatter","msgtype":"std_msgs/String","x":470,"y":360,"wires":[]},{"id":"c7030e4e.0c461","type":"ros-server","z":"","url":"ws://rosbridge:9090"}]
